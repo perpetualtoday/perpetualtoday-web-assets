@@ -118,6 +118,18 @@
                 var newUrl = event.target.parentElement.href;
             } else if (event.target.tagName.toLowerCase() == 'button') {
                 return;
+            } else if (event.target.id.toLowerCase() == 'back-top') {
+                return;
+            } else if (event.target.id.toLowerCase() == 'search-toggle') {
+                return;
+            } else if (event.target.id.toLowerCase() == 'mobile-toggle') {
+                return;
+            } else if (event.target.id.toLowerCase() == 'onepress-free-load-more-link') {
+                return;
+            } else if (event.target.id.toLowerCase() == 'more-button') {
+                return;
+            } else if (event.target.tagName.toLowerCase() == 'input') {
+                return;
             } else if (event.target.tagName.toLowerCase() != 'a') {
                 return;
             } else {
