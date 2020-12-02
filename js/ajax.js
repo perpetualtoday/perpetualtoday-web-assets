@@ -16,7 +16,7 @@
                 preloaderScreen.classList.add('hide');
             }, 200) //Note that this interval matches the timing of CSS animation
     }
-    
+
     function hideFullPlaceholder() {
         var placeholders = document.querySelectorAll('.placeholders');
         for (var i = 0; i < placeholders.length; i++) {
@@ -64,6 +64,19 @@
         );
     }
 
+
+    function loadPrimaryScript() {
+        (
+            function(document, tag) {
+                var scriptTag = document.createElement(tag),
+                    firstScriptTag = document.getElementsByTagName(tag)[0];
+                scriptTag.src = 'https://assets.perpetualtoday.now.sh/js/main.js';
+                firstScriptTag.parentNode.insertBefore(scriptTag, firstScriptTag); // append the script to the DOM
+            }
+            (document, 'script')
+        );
+    }
+
     function loadPage(newUrl) {
         var httpRequest = new XMLHttpRequest();
         httpRequest.onreadystatechange = function() {
@@ -86,6 +99,7 @@
             contentElement.replaceWith(newContent);
             loadExtScript();
             loadMainScript();
+            loadPrimaryScript();
         }
 
         httpRequest.responseType = "document";
