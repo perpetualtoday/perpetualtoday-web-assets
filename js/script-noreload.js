@@ -3,6 +3,10 @@ $('#onepress-free-main-menu .widget').addClass('show-menu');
 $('.search-toggle').on('click', function () {
     $('body').toggleClass('search-active')
 });
+        $('.show-onepress-free-mobile-menu, .hide-onepress-free-mobile-menu, .overlay').on('click', function () {
+            $('body').toggleClass('nav-active')
+        });
+
     $('#onepress-free-mobile-menu').each(function () {
         var onepressMoreLink = $(this),
             onepressMoreLinkContent4 = $('#onepress-free-main-menu-nav').clone();
@@ -11,7 +15,6 @@ $('.search-toggle').on('click', function () {
         $('.show-onepress-free-mobile-menu, .hide-onepress-free-mobile-menu, .overlay').on('click', function () {
             $('body').toggleClass('nav-active')
         });
-        $('.onepress-free-mobile-menu .has-sub').append('<div class="submenu-toggle"/>');
         $('.onepress-free-mobile-menu ul li .submenu-toggle').on('click', function (onepressAuthorNames) {
             if ($(this).parent().hasClass('has-sub')) {
                 onepressAuthorNames.preventDefault();
