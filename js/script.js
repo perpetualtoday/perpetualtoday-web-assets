@@ -347,7 +347,6 @@ function getAjax(onepressAuthorNames, onepressAuthorNamesArray, onepressMoreLink
                     onepressAuthorNames.html(onepressAuthorNamesStrike);
                     break
                 };
-                onepressAuthorNames.find('span.entry-thumb').lazyify()
             },
             error: function () {
                 onepressAuthorNames.html(msgServerError())
@@ -420,8 +419,7 @@ $('.onepress-free-blog-post-comments').each(function () {
     })
 });
 $(function () {
-    $('.index-post .entry-image-link .entry-thumb, .PopularPosts .entry-image-link .entry-thumb, .FeaturedPost .entry-image-link .entry-thumb,.about-author .author-avatar').lazyify();
-    $('.mobile-logo').each(function () {
+$('.mobile-logo').each(function () {
         var onepressMoreLink = $(this),
             onepressMoreLinkContent3 = $('#main-logo .header-widget a').clone();
         onepressMoreLinkContent3.find('#h1-tag').remove();
@@ -513,7 +511,6 @@ $(function () {
                         $('#onepress-free-load-more-link').hide();
                         $('#blog-pager .no-more').addClass('show')
                     };
-                    $('.index-post .entry-image-link .entry-thumb').lazyify()
                 },
                 beforeSend: function () {
                     $('#blog-pager .loading').show()
