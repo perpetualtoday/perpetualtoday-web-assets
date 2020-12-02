@@ -40,18 +40,6 @@
     }
 
     // we want to re-load our main scripts so things such as search and sliders work
-    function loadExtScript() {
-        (
-            function(document, tag) {
-                var scriptTag = document.createElement(tag),
-                    firstScriptTag = document.getElementsByTagName(tag)[0];
-                scriptTag.src = 'https://assets.perpetualtoday.now.sh/js/web-extensions.js';
-                firstScriptTag.parentNode.insertBefore(scriptTag, firstScriptTag); // append the script to the DOM
-            }
-            (document, 'script')
-        );
-    }
-
     function loadMainScript() {
         (
             function(document, tag) {
@@ -97,7 +85,6 @@
 
             var contentElement = document.getElementById("content");
             contentElement.replaceWith(newContent);
-            loadExtScript();
             loadMainScript();
             loadPrimaryScript();
         }
