@@ -144,14 +144,9 @@
             if (newUrl === undefined) {
                 return;
             } else if (newUrl.includes(domain)) {
-                if (newUrl.includes('posts')) {
-                    history.pushState(null /*stateObj*/ , "" /*title*/ , newUrl);
-                    navigatePage(newUrl);
-                } else {
                     showPreloader();
                     history.pushState(null /*stateObj*/ , "" /*title*/ , newUrl);
                     loadPage(newUrl);
-                }
             } else {
                 window.open(newUrl, "_blank");
             }
