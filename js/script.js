@@ -1,8 +1,4 @@
-$('#onepress-free-main-menu').menuify();
-$('#onepress-free-main-menu .widget').addClass('show-menu');
-$('.search-toggle').on('click', function () {
-    $('body').toggleClass('search-active')
-});
+
 $('.blog-posts-title a.more,.related-title a.more').each(function () {
     var onepressMoreLink = $(this),
         onepressViewAllText = viewAllText;
