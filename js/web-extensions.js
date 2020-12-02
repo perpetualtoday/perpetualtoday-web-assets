@@ -321,7 +321,7 @@
             } else {
                 img = dImg;
             }
-            a(window).on('load', lazyOnScroll);
+            a(window).on('load resize scroll', lazyOnScroll);
 
             function lazyOnScroll() {
                 var wHeight = a(window).height(),
