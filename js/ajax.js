@@ -103,6 +103,8 @@
                 var newUrl = event.target.parentElement.href;
             } else if (event.target.tagName.toLowerCase() == 'svg') {
                 var newUrl = event.target.parentElement.href;
+            } else if (event.target.id.toLowerCase() == 'thumb-image') {
+                var newUrl = event.target.parentElement.href;
             } else if (event.target.tagName.toLowerCase() == 'button') {
                 return;
             } else if (event.target.id.toLowerCase() == 'back-top') {
