@@ -321,15 +321,15 @@ function getAjax(onepressAuthorNames, onepressAuthorNamesArray, onepressMoreLink
                         case 'featured':
                             switch (onepressAuthorImage) {
                             case 0:
-                                onepressFollowByEmailTextb += '<article class="featured-item post item-' + onepressAuthorImage + '"><div class="featured-item-inner"><a class="entry-image-link before-mask" href="' + onepressMoreLink9 + '"><img class="lazyload entry-thumb" data-src="' + onepressFollowByEmailText9 + '"/></a>' + onepressFollowByEmailText2 + '<div class="entry-header entry-info"><h2 class="entry-title"><a href="' + onepressMoreLink9 + '">' + onepressFollowByEmailText8 + '</a></h2>' + onepressFollowByEmailTexta[0] + '</div></div></article><div class="featured-scroll">';
+                                onepressFollowByEmailTextb += '<article class="featured-item post item-' + onepressAuthorImage + '"><div class="featured-item-inner"><a class="entry-image-link before-mask" href="' + onepressMoreLink9 + '"><span class="entry-thumb" data-image="' + onepressFollowByEmailText9 + '"/></a>' + onepressFollowByEmailText2 + '<div class="entry-header entry-info"><h2 class="entry-title"><a href="' + onepressMoreLink9 + '">' + onepressFollowByEmailText8 + '</a></h2>' + onepressFollowByEmailTexta[0] + '</div></div></article><div class="featured-scroll">';
                                 break;
                             default:
-                                onepressFollowByEmailTextb += '<article class="featured-item post item-' + onepressAuthorImage + '"><div class="featured-item-inner"><a class="entry-image-link before-mask" href="' + onepressMoreLink9 + '"><img class="lazyload entry-thumb" data-src="' + onepressFollowByEmailText9 + '"/></a>' + onepressFollowByEmailText2 + '<div class="entry-header entry-info"><h2 class="entry-title"><a href="' + onepressMoreLink9 + '">' + onepressFollowByEmailText8 + '</a></h2>' + onepressFollowByEmailTexta[1] + '</div></div></article>';
+                                onepressFollowByEmailTextb += '<article class="featured-item post item-' + onepressAuthorImage + '"><div class="featured-item-inner"><a class="entry-image-link before-mask" href="' + onepressMoreLink9 + '"><span class="entry-thumb" data-image="' + onepressFollowByEmailText9 + '"/></a>' + onepressFollowByEmailText2 + '<div class="entry-header entry-info"><h2 class="entry-title"><a href="' + onepressMoreLink9 + '">' + onepressFollowByEmailText8 + '</a></h2>' + onepressFollowByEmailTexta[1] + '</div></div></article>';
                                 break
                             };
                             break;
                         case 'related':
-                            onepressFollowByEmailTextb += '<article class="related-item post item-' + onepressAuthorImage + '"><div class="entry-image"><a class="entry-image-link" href="' + onepressMoreLink9 + '"><img class="lazyload entry-thumb" data-src="' + onepressFollowByEmailText9 + '"/></a></div><div class="entry-header"><h2 class="entry-title"><a href="' + onepressMoreLink9 + '">' + onepressFollowByEmailText8 + '</a></h2>' + onepressFollowByEmailTexta[1] + '</div></article>';
+                            onepressFollowByEmailTextb += '<article class="related-item post item-' + onepressAuthorImage + '"><div class="entry-image"><a class="entry-image-link" href="' + onepressMoreLink9 + '"><span class="entry-thumb" data-image="' + onepressFollowByEmailText9 + '"/></a></div><div class="entry-header"><h2 class="entry-title"><a href="' + onepressMoreLink9 + '">' + onepressFollowByEmailText8 + '</a></h2>' + onepressFollowByEmailTexta[1] + '</div></article>';
                             break
                         };
                         onepressAuthorNamesStrike += onepressFollowByEmailTextb
@@ -347,6 +347,7 @@ function getAjax(onepressAuthorNames, onepressAuthorNamesArray, onepressMoreLink
                     onepressAuthorNames.html(onepressAuthorNamesStrike);
                     break
                 };
+                onepressAuthorNames.find('span.entry-thumb').lazyify()
             },
             error: function () {
                 onepressAuthorNames.html(msgServerError())
@@ -419,7 +420,8 @@ $('.onepress-free-blog-post-comments').each(function () {
     })
 });
 $(function () {
-$('.mobile-logo').each(function () {
+    $('.index-post .entry-image-link .entry-thumb, .PopularPosts .entry-image-link .entry-thumb, .FeaturedPost .entry-image-link .entry-thumb,.about-author .author-avatar').lazyify();
+    $('.mobile-logo').each(function () {
         var onepressMoreLink = $(this),
             onepressMoreLinkContent3 = $('#main-logo .header-widget a').clone();
         onepressMoreLinkContent3.find('#h1-tag').remove();
@@ -511,6 +513,7 @@ $('.mobile-logo').each(function () {
                         $('#onepress-free-load-more-link').hide();
                         $('#blog-pager .no-more').addClass('show')
                     };
+                    $('.index-post .entry-image-link .entry-thumb').lazyify()
                 },
                 beforeSend: function () {
                     $('#blog-pager .loading').show()

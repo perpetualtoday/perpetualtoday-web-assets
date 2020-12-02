@@ -302,7 +302,7 @@
     }
 }(jQuery);
 
-/*! ResizeIfy - LazyIfy on Scroll by Templateify | v1.2.0 - https://www.templateify.com
+/*! ResizeIfy - LazyIfy on Scroll by Templateify | v1.2.0 - https://www.templateify.com */
 ! function(a) {
     a.fn.lazyify = function() {
         return this.each(function() {
@@ -321,7 +321,7 @@
             } else {
                 img = dImg;
             }
-            a(window).on('load resize scroll', lazyOnScroll);
+            a(window).on('load', lazyOnScroll);
 
             function lazyOnScroll() {
                 var wHeight = a(window).height(),
@@ -338,7 +338,7 @@
         });
     }
 }(jQuery);
-*/
+
 /*! jQuery replaceText by "Cowboy" Ben Alman | v1.1.0 - http://benalman.com/projects/jquery-replacetext-plugin/ */
 (function($) {
     $.fn.replaceText = function(b, a, c) {
