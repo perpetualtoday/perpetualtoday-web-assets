@@ -11,7 +11,7 @@
 
     function showPreloader() {
         var preloaderScreen = document.getElementById('preloader');
-        var htmlBody = document.getElementsByTagName(body)[0];
+        var htmlBody = document.body;
         preloaderScreen.classList.remove('hide', 'fade-out');
         htmlBody.classList.add('disable-scroll');
         preloaderScreen.classList.add('fade-in')
@@ -19,7 +19,7 @@
 
     function hideFullPreloader() {
         var preloaderScreen = document.getElementById('preloader');
-        var htmlBody = document.getElementsByTagName(body)[0];
+        var htmlBody = document.body;
         preloaderScreen.classList.add('fade-out');
         preloaderScreen.classList.remove('fade-in');
         setTimeout(function() {
