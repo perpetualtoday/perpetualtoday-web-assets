@@ -34,6 +34,12 @@
         hideFullPreloader();
     }
 
+    async function scrollToComments() {
+        document.getElementById('comments-block').scrollIntoView({
+            behavior: 'smooth'
+        });
+    }
+
     async function hidePlaceholder() {
         await sleep(3000);
         hideFullPlaceholder();
