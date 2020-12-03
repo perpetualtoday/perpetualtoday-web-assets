@@ -13,37 +13,7 @@
     }
 
     function loadComments() {
-
-        var disqus_shortname = "perpetualtoday";
-        var disqus_blogger_current_url = "<data:blog.canonicalUrl/>";
-
-        if (!disqus_blogger_current_url.length) {
-            disqus_blogger_current_url = "<data:blog.url/>";
-        }
-
-        var disqus_blogger_homepage_url = "<data:blog.homepageUrl/>";
-        var disqus_blogger_canonical_homepage_url = "<data:blog.canonicalHomepageUrl/>";
-
-        if ($('body[class*="item"]').length > 0) {
-            (function() {
-                var bloggerjs = document.createElement("script");
-                bloggerjs.type = "text/javascript";
-                bloggerjs.async = true;
-                bloggerjs.src = "//" + disqus_shortname + ".disqus.com/blogger_item.js";
-
-                (document.getElementsByTagName("head")[0] || document.getElementsByTagName("body")[0]).appendChild(bloggerjs);
-            })();
-        };
-
-
-        (function() {
-            var bloggerjs = document.createElement("script");
-            bloggerjs.type = "text/javascript";
-            bloggerjs.async = true;
-            bloggerjs.src = "//" + disqus_shortname + ".disqus.com/blogger_index.js";
-
-            (document.getElementsByTagName("head")[0] || document.getElementsByTagName("body")[0]).appendChild(bloggerjs);
-        })();
+        (document.getElementsByTagName("head")[0] || document.getElementsByTagName("body")[0]).appendChild(bloggerjs);
     }
 
     function loadMainScript() {
@@ -51,7 +21,6 @@
     }
 
     $(document).ready(function() {
-        loadCommentsScript();
         loadMainScript();
         hidePreloader();
 
