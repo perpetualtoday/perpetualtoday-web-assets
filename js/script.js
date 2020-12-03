@@ -421,70 +421,19 @@ $('.onepress-free-blog-post-comments').each(function () {
 });
 $(function () {
     $('.index-post .entry-image-link .entry-thumb, .PopularPosts .entry-image-link .entry-thumb, .FeaturedPost .entry-image-link .entry-thumb,.about-author .author-avatar').lazyify();
-    $('.mobile-logo').each(function () {
-        var onepressMoreLink = $(this),
-            onepressMoreLinkContent3 = $('#main-logo .header-widget a').clone();
-        onepressMoreLinkContent3.find('#h1-tag').remove();
-        onepressMoreLinkContent3.appendTo(onepressMoreLink)
-    });
-    $('.social-mobile').each(function () {
-        var onepressMoreLink = $(this),
-            onepressMoreLinkContent3 = $('#navbar-social ul.social').clone();
-        onepressMoreLinkContent3.appendTo(onepressMoreLink)
-    });
-    $('#onepress-free-header-wrapper .headerify').each(function () {
-        var onepressAuthorNames = $(this);
-        if (fixedMenu == true) {
-            if (onepressAuthorNames.length > 0) {
-                var onepressMoreLinkContent5 = $(document).scrollTop(),
-                    onepressMoreLinkContent6 = onepressAuthorNames.offset().top,
-                    onepressMoreLinkContent7 = onepressAuthorNames.height(),
-                    onepressViewAllTextb = (onepressMoreLinkContent6 + onepressMoreLinkContent7);
-                $(window).scroll(function () {
-                    var onepressMoreLinkb = $(document).scrollTop(),
-                        onepressViewAllText9 = $('#footer-wrapper').offset().top,
-                        onepressViewAllTexta = (onepressViewAllText9 - onepressMoreLinkContent7);
-                    if (onepressMoreLinkb < onepressViewAllTexta) {
-                        if (onepressMoreLinkb > onepressViewAllTextb) {
-                            onepressAuthorNames.addClass('is-fixed')
-                        } else {
-                            if (onepressMoreLinkb <= 0) {
-                                onepressAuthorNames.removeClass('is-fixed')
-                            }
-                        };
-                        if (onepressMoreLinkb > onepressMoreLinkContent5) {
-                            onepressAuthorNames.removeClass('show')
-                        } else {
-                            onepressAuthorNames.addClass('show')
-                        };
-                        onepressMoreLinkContent5 = $(document).scrollTop()
-                    }
-                })
+    $('#onepress-free-mobile-menu').each(function () {
+        $('.show-onepress-free-mobile-menu, .hide-onepress-free-mobile-menu, .overlay').on('click', function () {
+            $('body').toggleClass('nav-active')
+        });
+        $('.onepress-free-mobile-menu ul li .submenu-toggle').on('click', function (onepressAuthorNames) {
+            if ($(this).parent().hasClass('has-sub')) {
+                onepressAuthorNames.preventDefault();
+                if (!$(this).parent().hasClass('show')) {
+                    $(this).parent().addClass('show').children('.m-sub').slideToggle(170)
+                } else {
+                    $(this).parent().removeClass('show').find('> .m-sub').slideToggle(170)
+                }
             }
-        }
-    });
-    $('#main-wrapper,#sidebar-wrapper').each(function () {
-        if (fixedSidebar == true) {
-            if (fixedMenu == true) {
-                var onepressMoreLinkContent8 = 90
-            } else {
-                onepressMoreLinkContent8 = 30
-            };
-            $(this).theiaStickySidebar({
-                additionalMarginTop: onepressMoreLinkContent8,
-                additionalMarginBottom: 30
-            })
-        }
-    });
-    $('.back-top').each(function () {
-        var onepressMoreLink = $(this);
-        $(window).on('scroll', function () {
-            $(this).scrollTop() >= 100 ? onepressMoreLink.fadeIn(250) : onepressMoreLink.fadeOut(250);
-            onepressMoreLink.offset().top >= $('#footer-wrapper').offset().top - 32 ? onepressMoreLink.addClass('on-footer') : onepressMoreLink.removeClass('on-footer')
-        }), onepressMoreLink.click(function () {
-            $('html, body').animate({
-                scrollTop: 0
-            }, 500)
         })
     });
     $('p.comment-content').each(function () {
