@@ -103,6 +103,8 @@
                 return;
             } else if (event.target.id.toLowerCase() == 'more-button') {
                 return;
+            } else if (event.target.id.toLowerCase() == 'share-button') {
+                return;
             } else if (event.target.tagName.toLowerCase() == 'input') {
                 return;
             } else if (event.target.tagName.toLowerCase() != 'a') {
