@@ -11,19 +11,15 @@
 
     function showPreloader() {
         var preloaderScreen = document.getElementById('preloader');
-        var htmlBody = document.body;
         preloaderScreen.classList.remove('hide', 'fade-out');
-        htmlBody.classList.add('disable-scroll');
         preloaderScreen.classList.add('fade-in')
     }
 
     function hideFullPreloader() {
         var preloaderScreen = document.getElementById('preloader');
-        var htmlBody = document.body;
         preloaderScreen.classList.add('fade-out');
         preloaderScreen.classList.remove('fade-in');
         setTimeout(function() {
-                htmlBody.classList.remove('disable-scroll');
                 preloaderScreen.classList.add('hide');
             }, 200) //Note that this interval matches the timing of CSS animation
     }
