@@ -134,12 +134,12 @@
 
             if (newUrl === undefined) {
                 return;
+            } else if (newUrl.includes(rss)) {
+                window.open(newUrl, "_blank");
             } else if (newUrl.includes(domain)) {
                     showPreloader();
                     history.pushState(null /*stateObj*/ , "" /*title*/ , newUrl);
                     loadPage(newUrl);
-            } else if (newUrl.includes(rss)) {
-                window.open(newUrl, "_blank");
             } else {
                 window.open(newUrl, "_blank");
             }
