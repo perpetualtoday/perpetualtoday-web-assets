@@ -52,7 +52,6 @@
         );
     }
 
-
     function loadPrimaryScript() {
         (
             function(document, tag) {
@@ -63,10 +62,6 @@
             }
             (document, 'script')
         );
-    }
-
-    function loadComments() {
-        BLOG_CMT_createIframe("<data:post.appRpcRelayPath/>");
     }
 
     function loadPage(newUrl) {
@@ -91,7 +86,6 @@
             contentElement.replaceWith(newContent);
             loadMainScript();
             loadPrimaryScript();
-            loadComments();
         }
 
         httpRequest.responseType = "document";
