@@ -89,10 +89,6 @@ $('.post-body strike').each(function () {
     })
 });
 
-function showShareModal(url){
-    $("#dialog").append($("<iframe />").attr("src", url)).dialog();
-}
-
 $('.onepress-free-share-links .window-ify,.entry-share .window-ify').on('click', function () {
     var onepressAuthorNames = $(this),
         onepressAuthorUrl = onepressAuthorNames.data('url'),
@@ -103,7 +99,6 @@ $('.onepress-free-share-links .window-ify,.entry-share .window-ify').on('click',
         onepressAuthorActualContainerHeight = Math.round(clientWindowWidth / 2 - onepressAuthorContainerHeight / 2),
         onepressAuthorActualContainerWidth = Math.round(clientWindowHeight / 2 - onepressAuthorContainerWidth / 2),
         onepressAuthorLink = window.open(onepressAuthorUrl, '_blank', 'scrollbars=yes,resizable=yes,toolbar=no,location=yes,width=' + onepressAuthorContainerHeight + ',height=' + onepressAuthorContainerWidth + ',left=' + onepressAuthorActualContainerHeight + ',top=' + onepressAuthorActualContainerWidth);
-    showShareModal(onepressAuthorUrl);
 });
 $('.onepress-free-share-links').each(function () {
     var onepressMoreLink = $(this),
