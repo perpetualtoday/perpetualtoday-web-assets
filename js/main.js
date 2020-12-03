@@ -13,7 +13,7 @@
     }
 
     function loadComments() {
-        (document.getElementsByTagName("head")[0] || document.getElementsByTagName("body")[0]).appendChild(bloggerjs);
+        BLOG_CMT_createIframe("<data:post.appRpcRelayPath/>");
     }
 
     function loadMainScript() {
@@ -21,11 +21,12 @@
     }
 
     $(document).ready(function() {
+        loadCommentsScript();
         loadMainScript();
         hidePreloader();
 
         // Load comments only if comments are enabled in the page. Reduces console errors and keeps browser happy.
-        if ($('section').is('#comments')) {
+        if ($('iframe').is('#comment-editor')) {
             loadComments();
         }
     });
