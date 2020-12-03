@@ -13,7 +13,7 @@
     }
 
     function loadComments() {
-        BLOG_CMT_createIframe("<data:post.appRpcRelayPath/>");
+        (document.getElementsByTagName("head")[0] || document.getElementsByTagName("body")[0]).appendChild(bloggerjs);
     }
 
     function loadMainScript() {
