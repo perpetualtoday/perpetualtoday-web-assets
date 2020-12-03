@@ -16,8 +16,13 @@
         BLOG_CMT_createIframe("<data:post.appRpcRelayPath/>");
     }
 
+    function loadMainScript() {
+        $.getScript('https://assets.perpetualtoday.now.sh/js/script.js');
+    }
+
     $(document).ready(function() {
     	loadCommentsScript();
+    	loadMainScript();
         hidePreloader();
         loadComments();
     });
