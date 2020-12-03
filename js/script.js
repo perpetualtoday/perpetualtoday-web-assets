@@ -103,7 +103,7 @@ $('.onepress-free-share-links .window-ify,.entry-share .window-ify').on('click',
         onepressAuthorActualContainerHeight = Math.round(clientWindowWidth / 2 - onepressAuthorContainerHeight / 2),
         onepressAuthorActualContainerWidth = Math.round(clientWindowHeight / 2 - onepressAuthorContainerWidth / 2),
         onepressAuthorLink = window.open(onepressAuthorUrl, '_blank', 'scrollbars=yes,resizable=yes,toolbar=no,location=yes,width=' + onepressAuthorContainerHeight + ',height=' + onepressAuthorContainerWidth + ',left=' + onepressAuthorActualContainerHeight + ',top=' + onepressAuthorActualContainerWidth);
-    onepressAuthorUrl.showShareModal()
+    showShareModal(onepressAuthorUrl);
 });
 $('.onepress-free-share-links').each(function () {
     var onepressMoreLink = $(this),
