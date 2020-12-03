@@ -16,6 +16,9 @@ $(function () {
             onepressMoreLinkContent4 = $('#onepress-free-main-menu-nav').clone();
         onepressMoreLinkContent4.attr('id', 'main-mobile-nav');
         onepressMoreLinkContent4.appendTo(onepressMoreLink);
+        $('.show-onepress-free-mobile-menu, .hide-onepress-free-mobile-menu, .overlay').on('click', function () {
+            $('body').toggleClass('nav-active')
+        });
         $('.onepress-free-mobile-menu .has-sub').append('<div class="submenu-toggle"/>')
     });
     $('#onepress-free-mobile-menu').each(function () {

@@ -97,8 +97,7 @@ $('.onepress-free-share-links .window-ify,.entry-share .window-ify').on('click',
         clientWindowHeight = window.screen.height,
         onepressAuthorActualContainerHeight = Math.round(clientWindowWidth / 2 - onepressAuthorContainerHeight / 2),
         onepressAuthorActualContainerWidth = Math.round(clientWindowHeight / 2 - onepressAuthorContainerWidth / 2),
-        onepressAuthorLink = window.open(onepressAuthorUrl, '_blank', 'scrollbars=yes,resizable=yes,toolbar=no,location=yes,width=' + onepressAuthorContainerHeight + ',height=' + onepressAuthorContainerWidth + ',left=' + onepressAuthorActualContainerHeight + ',top=' + onepressAuthorActualContainerWidth);
-    onepressAuthorLink.focus()
+        $("#dialog").append($("<iframe />").attr("src", onepressAuthorUrl)).dialog();
 });
 $('.onepress-free-share-links').each(function () {
     var onepressMoreLink = $(this),
@@ -422,9 +421,6 @@ $('.onepress-free-blog-post-comments').each(function () {
 $(function () {
     $('.index-post .entry-image-link .entry-thumb, .PopularPosts .entry-image-link .entry-thumb, .FeaturedPost .entry-image-link .entry-thumb,.about-author .author-avatar').lazyify();
     $('#onepress-free-mobile-menu').each(function () {
-        $('.show-onepress-free-mobile-menu, .hide-onepress-free-mobile-menu, .overlay').on('click', function () {
-            $('body').toggleClass('nav-active')
-        });
         $('.onepress-free-mobile-menu ul li .submenu-toggle').on('click', function (onepressAuthorNames) {
             if ($(this).parent().hasClass('has-sub')) {
                 onepressAuthorNames.preventDefault();
