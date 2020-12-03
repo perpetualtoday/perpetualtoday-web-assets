@@ -24,7 +24,11 @@
     	loadCommentsScript();
     	loadMainScript();
         hidePreloader();
-        loadComments();
+
+        // Load comments only if comments are enabled in the page. Reduces console errors and keeps browser happy.
+        if ($('iframe').is('#comment-editor')) {
+        	loadComments();
+        }
     });
 
 })(jQuery);
