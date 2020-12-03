@@ -21,12 +21,6 @@ $(function () {
         });
         $('.onepress-free-mobile-menu .has-sub').append('<div class="submenu-toggle"/>')
     });
-    $('#onepress-free-mobile-menu').each(function () {
-        var onepressMoreLink = $(this),
-            onepressMoreLinkContent4 = $('#onepress-free-main-menu-nav').clone();
-        onepressMoreLinkContent4.attr('id', 'main-mobile-nav');
-        onepressMoreLinkContent4.appendTo(onepressMoreLink);
-    });
     $('#main-wrapper,#sidebar-wrapper').each(function () {
         if (fixedSidebar == true) {
             if (fixedMenu == true) {
