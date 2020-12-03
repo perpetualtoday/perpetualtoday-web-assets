@@ -34,12 +34,6 @@
         hideFullPreloader();
     }
 
-    async function scrollToComments() {
-        document.getElementById('comments-block').scrollIntoView({
-            behavior: 'smooth'
-        });
-    }
-
     async function hidePlaceholder() {
         await sleep(3000);
         hideFullPlaceholder();
@@ -135,6 +129,7 @@
             // External links should instead open in a new tab
 
             var domain = window.location.origin;
+            var rss = "feed";
             var currentPage = window.location.href;
 
             if (newUrl === undefined) {
@@ -143,6 +138,8 @@
                     showPreloader();
                     history.pushState(null /*stateObj*/ , "" /*title*/ , newUrl);
                     loadPage(newUrl);
+            } else if (newUrl.includes(rss)) {
+                window.open(newUrl, "_blank");
             } else {
                 window.open(newUrl, "_blank");
             }
