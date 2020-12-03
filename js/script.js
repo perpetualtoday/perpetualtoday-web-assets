@@ -1,19 +1,18 @@
-
-$('.blog-posts-title a.more,.related-title a.more').each(function () {
+$('.blog-posts-title a.more,.related-title a.more').each(function() {
     var onepressMoreLink = $(this),
         onepressViewAllText = viewAllText;
     if (onepressViewAllText != '') {
         onepressMoreLink.text(onepressViewAllText)
     }
 });
-$('.follow-by-email-text').each(function () {
+$('.follow-by-email-text').each(function() {
     var onepressMoreLink = $(this),
         onepressFollowByEmailText = followByEmailText;
     if (onepressFollowByEmailText != '') {
         onepressMoreLink.text(onepressFollowByEmailText)
     }
 });
-$('#onepress-free-social-counter ul.social-icons li a').each(function () {
+$('#onepress-free-social-counter ul.social-icons li a').each(function() {
     var onepressMoreLink = $(this),
         onepressMoreLinkContent = onepressMoreLink.find('.count'),
         onepressMoreLinkArray = onepressMoreLink.data('content').trim(),
@@ -23,12 +22,12 @@ $('#onepress-free-social-counter ul.social-icons li a').each(function () {
     onepressMoreLink.attr('href', onepressMoreLinkListOne);
     onepressMoreLinkContent.text(onepressMoreLinkListTwo)
 });
-$('.avatar-image-container img').attr('src', function (onepressAuthorNames, onepressAuthorImage) {
+$('.avatar-image-container img').attr('src', function(onepressAuthorNames, onepressAuthorImage) {
     onepressAuthorImage = onepressAuthorImage.replace('//resources.blogblog.com/img/blank.gif', '//assets.perpetualtoday.now.sh/images/default_avatar.jpg');
     onepressAuthorImage = onepressAuthorImage.replace('//img1.blogblog.com/img/blank.gif', '//assets.perpetualtoday.now.sh/images/default_avatar.jpg');
     return onepressAuthorImage
 });
-$('.post-body a').each(function () {
+$('.post-body a').each(function() {
     var onepressAuthorNames = $(this),
         onepressAuthorNamesArray = onepressAuthorNames.text().trim(),
         onepressAuthorNamesList = onepressAuthorNamesArray.split('/'),
@@ -47,7 +46,7 @@ $('.post-body a').each(function () {
         }
     }
 });
-$('.post-body strike').each(function () {
+$('.post-body strike').each(function() {
     var onepressAuthorNames = $(this),
         onepressAuthorNamesArray = onepressAuthorNames.text().trim(),
         onepressAuthorNamesStrike = onepressAuthorNames.html();
@@ -80,7 +79,7 @@ $('.post-body strike').each(function () {
         onepressAuthorNames.replaceWith('<pre class="code-box short-b">' + onepressAuthorNamesStrike + '</pre>')
     };
     var onepressPostAlert = $('.post-body .short-b').find('b');
-    onepressPostAlert.each(function () {
+    onepressPostAlert.each(function() {
         var onepressPostAlertText = $(this),
             onepressMoreLink = onepressPostAlertText.text().trim();
         if (onepressMoreLink.match('alert-success') || onepressMoreLink.match('alert-info') || onepressMoreLink.match('alert-warning') || onepressMoreLink.match('alert-error') || onepressMoreLink.match('code-box')) {
@@ -89,7 +88,7 @@ $('.post-body strike').each(function () {
     })
 });
 
-$('.onepress-free-share-links .window-ify,.entry-share .window-ify').on('click', function () {
+$('.onepress-free-share-links .window-ify,.entry-share .window-ify').on('click', function() {
     var onepressAuthorNames = $(this),
         onepressAuthorUrl = onepressAuthorNames.data('url'),
         onepressAuthorContainerHeight = onepressAuthorNames.data('width'),
@@ -100,14 +99,14 @@ $('.onepress-free-share-links .window-ify,.entry-share .window-ify').on('click',
         onepressAuthorActualContainerWidth = Math.round(clientWindowHeight / 2 - onepressAuthorContainerWidth / 2),
         onepressAuthorLink = window.open(onepressAuthorUrl, '_blank', 'scrollbars=yes,resizable=yes,toolbar=no,location=yes,width=' + onepressAuthorContainerHeight + ',height=' + onepressAuthorContainerWidth + ',left=' + onepressAuthorActualContainerHeight + ',top=' + onepressAuthorActualContainerWidth);
 });
-$('.onepress-free-share-links').each(function () {
+$('.onepress-free-share-links').each(function() {
     var onepressMoreLink = $(this),
         onepressPostAlertText = onepressMoreLink.find('.show-hid a');
-    onepressPostAlertText.on('click', function () {
+    onepressPostAlertText.on('click', function() {
         onepressMoreLink.toggleClass('show-hidden')
     })
 });
-$('.about-author .author-description span a').each(function () {
+$('.about-author .author-description span a').each(function() {
     var onepressAuthorNames = $(this),
         onepressAuthorShareLinks = onepressAuthorNames.text().trim(),
         onepressAuthorUrl = onepressAuthorNames.attr('href');
@@ -136,19 +135,19 @@ function beforeLoader() {
 function getFeedUrl(onepressAuthorNamesArray, onepressMoreLink3, onepressMoreLink4) {
     var onepressMoreLink5 = '';
     switch (onepressMoreLink4) {
-    case 'recent':
-        onepressMoreLink5 = '/feeds/posts/default?alt=json&max-results=' + onepressMoreLink3;
-        break;
-    case 'comments':
-        if (onepressAuthorNamesArray == 'list') {
-            onepressMoreLink5 = '/feeds/comments/default?alt=json&max-results=' + onepressMoreLink3
-        } else {
-            onepressMoreLink5 = '/feeds/posts/default/-/' + onepressMoreLink4 + '?alt=json&max-results=' + onepressMoreLink3
-        };
-        break;
-    default:
-        onepressMoreLink5 = '/feeds/posts/default/-/' + onepressMoreLink4 + '?alt=json&max-results=' + onepressMoreLink3;
-        break
+        case 'recent':
+            onepressMoreLink5 = '/feeds/posts/default?alt=json&max-results=' + onepressMoreLink3;
+            break;
+        case 'comments':
+            if (onepressAuthorNamesArray == 'list') {
+                onepressMoreLink5 = '/feeds/comments/default?alt=json&max-results=' + onepressMoreLink3
+            } else {
+                onepressMoreLink5 = '/feeds/posts/default/-/' + onepressMoreLink4 + '?alt=json&max-results=' + onepressMoreLink3
+            };
+            break;
+        default:
+            onepressMoreLink5 = '/feeds/posts/default/-/' + onepressMoreLink4 + '?alt=json&max-results=' + onepressMoreLink3;
+            break
     };
     return onepressMoreLink5
 }
@@ -272,87 +271,87 @@ function getCustomStyle(onepressAuthorNamesArray, onepressMoreLink4, onepressAut
 
 function getAjax(onepressAuthorNames, onepressAuthorNamesArray, onepressMoreLink3, onepressMoreLink4, onepressAuthorNamesPop) {
     switch (onepressAuthorNamesArray) {
-    case 'featured':
-        ;
-    case 'related':
-        if (onepressMoreLink4 == undefined) {
-            onepressMoreLink4 = 'geterror404'
-        };
-        var onepressMoreLink5 = getFeedUrl(onepressAuthorNamesArray, onepressMoreLink3, onepressMoreLink4);
-        $['ajax']({
-            url: onepressMoreLink5,
-            type: 'GET',
-            dataType: 'json',
-            cache: true,
-            beforeSend: function (onepressFollowByEmailText5) {
-                var onepressFollowByEmailText6 = getCustomStyle(onepressAuthorNamesArray, onepressMoreLink4, onepressAuthorNamesPop);
-                switch (onepressAuthorNamesArray) {
-                case 'featured':
-                    $('#page-skin-2').prepend(onepressFollowByEmailText6);
-                    onepressAuthorNames.html(beforeLoader()).parent().addClass('id-' + onepressAuthorNamesArray + '-' + onepressMoreLink4 + ' show-ify');
-                    break;
-                case 'related':
-                    onepressAuthorNames.html(beforeLoader()).parent().addClass('show-ify');
-                    break
-                }
-            },
-            success: function (onepressFollowByEmailText5) {
-                var onepressAuthorNamesStrike = '';
-                switch (onepressAuthorNamesArray) {
-                case 'featured':
-                    onepressAuthorNamesStrike = '<div class="featured-posts">';
-                    break;
-                case 'related':
-                    onepressAuthorNamesStrike = '<div class="related-posts">';
-                    break
-                };
-                var onepressFollowByEmailText7 = onepressFollowByEmailText5.feed.entry;
-                if (onepressFollowByEmailText7 != undefined) {
-                    for (var onepressAuthorImage = 0, onepressMoreLink7 = onepressFollowByEmailText7; onepressAuthorImage < onepressMoreLink7.length; onepressAuthorImage++) {
-                        var onepressMoreLink9 = getPostLink(onepressMoreLink7, onepressAuthorImage),
-                            onepressFollowByEmailText8 = getPostTitle(onepressMoreLink7, onepressAuthorImage, onepressMoreLink9),
-                            onepressFollowByEmailText9 = getPostImage(onepressMoreLink7, onepressAuthorImage, onepressMoreLink9),
-                            onepressViewAllTextd = getPostAuthor(onepressMoreLink7, onepressAuthorImage),
-                            onepressViewAllTexte = getPostDate(onepressMoreLink7, onepressAuthorImage),
-                            onepressFollowByEmailTexta = getPostMeta(onepressViewAllTextd, onepressViewAllTexte),
-                            onepressFollowByEmailText2 = getPostLabel(onepressMoreLink7, onepressAuthorImage);
-                        var onepressFollowByEmailTextb = '';
-                        switch (onepressAuthorNamesArray) {
+        case 'featured':
+            ;
+        case 'related':
+            if (onepressMoreLink4 == undefined) {
+                onepressMoreLink4 = 'geterror404'
+            };
+            var onepressMoreLink5 = getFeedUrl(onepressAuthorNamesArray, onepressMoreLink3, onepressMoreLink4);
+            $['ajax']({
+                url: onepressMoreLink5,
+                type: 'GET',
+                dataType: 'json',
+                cache: true,
+                beforeSend: function(onepressFollowByEmailText5) {
+                    var onepressFollowByEmailText6 = getCustomStyle(onepressAuthorNamesArray, onepressMoreLink4, onepressAuthorNamesPop);
+                    switch (onepressAuthorNamesArray) {
                         case 'featured':
-                            switch (onepressAuthorImage) {
-                            case 0:
-                                onepressFollowByEmailTextb += '<article class="featured-item post item-' + onepressAuthorImage + '"><div class="featured-item-inner"><a class="entry-image-link before-mask" href="' + onepressMoreLink9 + '"><span class="entry-thumb" id="thumb-image" data-image="' + onepressFollowByEmailText9 + '"/></a>' + onepressFollowByEmailText2 + '<div class="entry-header entry-info"><h2 class="entry-title"><a href="' + onepressMoreLink9 + '">' + onepressFollowByEmailText8 + '</a></h2>' + onepressFollowByEmailTexta[0] + '</div></div></article><div class="featured-scroll">';
-                                break;
-                            default:
-                                onepressFollowByEmailTextb += '<article class="featured-item post item-' + onepressAuthorImage + '"><div class="featured-item-inner"><a class="entry-image-link before-mask" href="' + onepressMoreLink9 + '"><span class="entry-thumb" id="thumb-image" data-image="' + onepressFollowByEmailText9 + '"/></a>' + onepressFollowByEmailText2 + '<div class="entry-header entry-info"><h2 class="entry-title"><a href="' + onepressMoreLink9 + '">' + onepressFollowByEmailText8 + '</a></h2>' + onepressFollowByEmailTexta[1] + '</div></div></article>';
-                                break
-                            };
+                            $('#page-skin-2').prepend(onepressFollowByEmailText6);
+                            onepressAuthorNames.html(beforeLoader()).parent().addClass('id-' + onepressAuthorNamesArray + '-' + onepressMoreLink4 + ' show-ify');
                             break;
                         case 'related':
-                            onepressFollowByEmailTextb += '<article class="related-item post item-' + onepressAuthorImage + '"><div class="entry-image"><a class="entry-image-link" href="' + onepressMoreLink9 + '"><span class="entry-thumb" id="thumb-image" data-image="' + onepressFollowByEmailText9 + '"/></a></div><div class="entry-header"><h2 class="entry-title"><a href="' + onepressMoreLink9 + '">' + onepressFollowByEmailText8 + '</a></h2>' + onepressFollowByEmailTexta[1] + '</div></article>';
+                            onepressAuthorNames.html(beforeLoader()).parent().addClass('show-ify');
                             break
-                        };
-                        onepressAuthorNamesStrike += onepressFollowByEmailTextb
                     }
-                } else {
-                    onepressAuthorNamesStrike = msgError()
-                };
-                switch (onepressAuthorNamesArray) {
-                case 'featured':
-                    onepressAuthorNamesStrike += '</div></div>';
-                    onepressAuthorNames.html(onepressAuthorNamesStrike);
-                    break;
-                default:
-                    onepressAuthorNamesStrike += '</div>';
-                    onepressAuthorNames.html(onepressAuthorNamesStrike);
-                    break
-                };
-                onepressAuthorNames.find('span.entry-thumb').lazyify()
-            },
-            error: function () {
-                onepressAuthorNames.html(msgServerError())
-            }
-        })
+                },
+                success: function(onepressFollowByEmailText5) {
+                    var onepressAuthorNamesStrike = '';
+                    switch (onepressAuthorNamesArray) {
+                        case 'featured':
+                            onepressAuthorNamesStrike = '<div class="featured-posts">';
+                            break;
+                        case 'related':
+                            onepressAuthorNamesStrike = '<div class="related-posts">';
+                            break
+                    };
+                    var onepressFollowByEmailText7 = onepressFollowByEmailText5.feed.entry;
+                    if (onepressFollowByEmailText7 != undefined) {
+                        for (var onepressAuthorImage = 0, onepressMoreLink7 = onepressFollowByEmailText7; onepressAuthorImage < onepressMoreLink7.length; onepressAuthorImage++) {
+                            var onepressMoreLink9 = getPostLink(onepressMoreLink7, onepressAuthorImage),
+                                onepressFollowByEmailText8 = getPostTitle(onepressMoreLink7, onepressAuthorImage, onepressMoreLink9),
+                                onepressFollowByEmailText9 = getPostImage(onepressMoreLink7, onepressAuthorImage, onepressMoreLink9),
+                                onepressViewAllTextd = getPostAuthor(onepressMoreLink7, onepressAuthorImage),
+                                onepressViewAllTexte = getPostDate(onepressMoreLink7, onepressAuthorImage),
+                                onepressFollowByEmailTexta = getPostMeta(onepressViewAllTextd, onepressViewAllTexte),
+                                onepressFollowByEmailText2 = getPostLabel(onepressMoreLink7, onepressAuthorImage);
+                            var onepressFollowByEmailTextb = '';
+                            switch (onepressAuthorNamesArray) {
+                                case 'featured':
+                                    switch (onepressAuthorImage) {
+                                        case 0:
+                                            onepressFollowByEmailTextb += '<article class="featured-item post item-' + onepressAuthorImage + '"><div class="featured-item-inner"><a class="entry-image-link before-mask" href="' + onepressMoreLink9 + '"><span class="entry-thumb" id="thumb-image" data-image="' + onepressFollowByEmailText9 + '"/></a>' + onepressFollowByEmailText2 + '<div class="entry-header entry-info"><h2 class="entry-title"><a href="' + onepressMoreLink9 + '">' + onepressFollowByEmailText8 + '</a></h2>' + onepressFollowByEmailTexta[0] + '</div></div></article><div class="featured-scroll">';
+                                            break;
+                                        default:
+                                            onepressFollowByEmailTextb += '<article class="featured-item post item-' + onepressAuthorImage + '"><div class="featured-item-inner"><a class="entry-image-link before-mask" href="' + onepressMoreLink9 + '"><span class="entry-thumb" id="thumb-image" data-image="' + onepressFollowByEmailText9 + '"/></a>' + onepressFollowByEmailText2 + '<div class="entry-header entry-info"><h2 class="entry-title"><a href="' + onepressMoreLink9 + '">' + onepressFollowByEmailText8 + '</a></h2>' + onepressFollowByEmailTexta[1] + '</div></div></article>';
+                                            break
+                                    };
+                                    break;
+                                case 'related':
+                                    onepressFollowByEmailTextb += '<article class="related-item post item-' + onepressAuthorImage + '"><div class="entry-image"><a class="entry-image-link" href="' + onepressMoreLink9 + '"><span class="entry-thumb" id="thumb-image" data-image="' + onepressFollowByEmailText9 + '"/></a></div><div class="entry-header"><h2 class="entry-title"><a href="' + onepressMoreLink9 + '">' + onepressFollowByEmailText8 + '</a></h2>' + onepressFollowByEmailTexta[1] + '</div></article>';
+                                    break
+                            };
+                            onepressAuthorNamesStrike += onepressFollowByEmailTextb
+                        }
+                    } else {
+                        onepressAuthorNamesStrike = msgError()
+                    };
+                    switch (onepressAuthorNamesArray) {
+                        case 'featured':
+                            onepressAuthorNamesStrike += '</div></div>';
+                            onepressAuthorNames.html(onepressAuthorNamesStrike);
+                            break;
+                        default:
+                            onepressAuthorNamesStrike += '</div>';
+                            onepressAuthorNames.html(onepressAuthorNamesStrike);
+                            break
+                    };
+                    onepressAuthorNames.find('span.entry-thumb').lazyify()
+                },
+                error: function() {
+                    onepressAuthorNames.html(msgServerError())
+                }
+            })
     }
 }
 
@@ -362,7 +361,7 @@ function ajaxFeatured(onepressAuthorNames, onepressAuthorNamesArray, onepressMor
             return getAjax(onepressAuthorNames, onepressAuthorNamesArray, onepressMoreLink3, onepressMoreLink4, onepressAuthorNamesPop)
         } else {
             onepressAuthorNames.html(beforeLoader()).parent().addClass('show-ify');
-            setTimeout(function () {
+            setTimeout(function() {
                 onepressAuthorNames.html(msgError())
             }, 500)
         }
@@ -374,7 +373,7 @@ function ajaxRelated(onepressAuthorNames, onepressAuthorNamesArray, onepressMore
         return getAjax(onepressAuthorNames, onepressAuthorNamesArray, onepressMoreLink3, onepressMoreLink4)
     }
 }
-$('#featured .HTML .widget-content').each(function (onepressMoreLink4, onepressAuthorNamesPop) {
+$('#featured .HTML .widget-content').each(function(onepressMoreLink4, onepressAuthorNamesPop) {
     var onepressAuthorNames = $(this),
         onepressAuthorNamesListOne = onepressAuthorNames.text().trim(),
         onepressFollowByEmailTextd = onepressAuthorNamesListOne.toLowerCase(),
@@ -383,46 +382,46 @@ $('#featured .HTML .widget-content').each(function (onepressMoreLink4, onepressA
     onepressFollowByEmailTextf[2] != undefined ? onepressAuthorNamesPop = regxify(onepressFollowByEmailTextf[2]) : onepressAuthorNamesPop = '';
     ajaxFeatured(onepressAuthorNames, 'featured', 3, onepressMoreLink4, onepressFollowByEmailTextd, onepressAuthorNamesPop)
 });
-$('.onepress-free-related-content').each(function () {
+$('.onepress-free-related-content').each(function() {
     var onepressAuthorNames = $(this),
         onepressMoreLink4 = onepressAuthorNames.find('.related-tag').attr('data-label'),
         onepressMoreLink3 = relatedPostsNum;
     ajaxRelated(onepressAuthorNames, 'related', onepressMoreLink3, onepressMoreLink4, 'getrelated')
 });
-$('.onepress-free-blog-post-comments').each(function () {
+$('.onepress-free-blog-post-comments').each(function() {
     var onepressAuthorNames = $(this),
         onepressMoreLinkContent0 = 'blogger',
         onepressMoreLinkContent1 = 'comments-system-' + onepressMoreLinkContent0;
     switch (onepressMoreLinkContent0) {
-    case 'blogger':
-        ;
-    case 'facebook':
-        ;
-    case 'disqus':
-        onepressAuthorNames.addClass(onepressMoreLinkContent1).show();
-        $('.entry-meta .entry-comments-link').addClass('show');
-        break;
-    case 'hide':
-        onepressAuthorNames.hide();
-        break;
-    default:
-        onepressAuthorNames.addClass('comments-system-default').show();
-        $('.entry-meta .entry-comments-link').addClass('show');
-        break
+        case 'blogger':
+            ;
+        case 'facebook':
+            ;
+        case 'disqus':
+            onepressAuthorNames.addClass(onepressMoreLinkContent1).show();
+            $('.entry-meta .entry-comments-link').addClass('show');
+            break;
+        case 'hide':
+            onepressAuthorNames.hide();
+            break;
+        default:
+            onepressAuthorNames.addClass('comments-system-default').show();
+            $('.entry-meta .entry-comments-link').addClass('show');
+            break
     };
     var onepressMoreLinkContent2 = onepressAuthorNames.find('.comments .toplevel-thread > ol > .comment .comment-actions .comment-reply'),
         onepressMoreLinkListTwo = onepressAuthorNames.find('.comments .toplevel-thread > #top-continue');
-    onepressMoreLinkContent2.on('click', function () {
+    onepressMoreLinkContent2.on('click', function() {
         onepressMoreLinkListTwo.show()
     });
-    onepressMoreLinkListTwo.on('click', function () {
+    onepressMoreLinkListTwo.on('click', function() {
         onepressMoreLinkListTwo.hide()
     })
 });
-$(function () {
+$(function() {
     $('.index-post .entry-image-link .entry-thumb, .PopularPosts .entry-image-link .entry-thumb, .FeaturedPost .entry-image-link .entry-thumb,.about-author .author-avatar').lazyify();
-    $('#onepress-free-mobile-menu').each(function () {
-        $('.onepress-free-mobile-menu ul li .submenu-toggle').on('click', function (onepressAuthorNames) {
+    $('#onepress-free-mobile-menu').each(function() {
+        $('.onepress-free-mobile-menu ul li .submenu-toggle').on('click', function(onepressAuthorNames) {
             if ($(this).parent().hasClass('has-sub')) {
                 onepressAuthorNames.preventDefault();
                 if (!$(this).parent().hasClass('show')) {
@@ -433,22 +432,22 @@ $(function () {
             }
         })
     });
-    $('p.comment-content').each(function () {
+    $('p.comment-content').each(function() {
         var onepressMoreLink = $(this);
         onepressMoreLink.replaceText(/(https:\/\/\S+(\.png|\.jpeg|\.jpg|\.gif))/g, '<img src="$1"/>');
         onepressMoreLink.replaceText(/(?:https:\/\/)?(?:www\.)?(?:youtube\.com)\/(?:watch\?v=)?(.+)/g, '<iframe id="youtube" width="100%" height="358" src="https://www.youtube.com/embed/$1" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>')
     });
-    $('#onepress-free-load-more-link').each(function () {
+    $('#onepress-free-load-more-link').each(function() {
         var onepressAuthorNames = $(this),
             onepressMoreLinkContent9 = onepressAuthorNames.data('load');
         if (onepressMoreLinkContent9) {
             $('#onepress-free-load-more-link').show()
         };
-        $('#onepress-free-load-more-link').on('click', function (onepressMoreLinkContenta) {
+        $('#onepress-free-load-more-link').on('click', function(onepressMoreLinkContenta) {
             $('#onepress-free-load-more-link').hide();
             $['ajax']({
                 url: onepressMoreLinkContent9,
-                success: function (onepressFollowByEmailText5) {
+                success: function(onepressFollowByEmailText5) {
                     var onepressMoreLinkContentb = $(onepressFollowByEmailText5).find('.blog-posts');
                     onepressMoreLinkContentb.find('.index-post').addClass('post-animated post-fadeInUp');
                     $('.blog-posts').append(onepressMoreLinkContentb.html());
@@ -461,10 +460,10 @@ $(function () {
                     };
                     $('.index-post .entry-image-link .entry-thumb').lazyify()
                 },
-                beforeSend: function () {
+                beforeSend: function() {
                     $('#blog-pager .loading').show()
                 },
-                complete: function () {
+                complete: function() {
                     $('#blog-pager .loading').hide()
                 }
             });
