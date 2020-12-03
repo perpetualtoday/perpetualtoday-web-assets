@@ -187,7 +187,7 @@ function getPostImage(onepressMoreLink7, onepressAuthorImage, onepressMoreLinkd)
     if (onepressMoreLink7[onepressAuthorImage].media$thumbnail) {
         var onepressViewAllText3 = onepressMoreLink7[onepressAuthorImage].media$thumbnail.url
     } else {
-        onepressViewAllText3 = 'https://4.bp.blogspot.com/-eALXtf-Ljts/WrQYAbzcPUI/AAAAAAAABjY/vptx-N2H46oFbiCqbSe2JgVSlHhyl0MwQCK4BGAYYCw/s72-c/nth-ify.png'
+        onepressViewAllText3 = 'https://assets.perpetualtoday.now.sh/images/default_article_image.jpg'
     };
     if (onepressMoreLinkListTwo.indexOf(onepressMoreLinkListTwo.match(/<iframe(?:.+)?src=(?:.+)?(?:www.youtube.com)/g)) > -1) {
         if (onepressMoreLinkListTwo.indexOf('<img') > -1) {
@@ -203,7 +203,7 @@ function getPostImage(onepressMoreLink7, onepressAuthorImage, onepressMoreLinkd)
         if (onepressMoreLinkListTwo.indexOf('<img') > -1) {
             onepressMoreLinkd = getFirstImage(onepressMoreLinkListTwo)
         } else {
-            onepressMoreLinkd = 'https://4.bp.blogspot.com/-eALXtf-Ljts/WrQYAbzcPUI/AAAAAAAABjY/vptx-N2H46oFbiCqbSe2JgVSlHhyl0MwQCK4BGAYYCw/s72-c/nth-ify.png'
+            onepressMoreLinkd = 'https://assets.perpetualtoday.now.sh/images/default_article_image.jpg'
         }
     };
     return onepressMoreLinkd
