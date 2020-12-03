@@ -87,6 +87,7 @@
             contentElement.replaceWith(newContent);
             loadMainScript();
             loadPrimaryScript();
+            loadComments();
         }
 
         httpRequest.responseType = "document";
