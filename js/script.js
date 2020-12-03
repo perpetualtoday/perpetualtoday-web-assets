@@ -382,6 +382,15 @@ $('#featured .HTML .widget-content').each(function(onepressMoreLink4, onepressAu
     onepressFollowByEmailTextf[2] != undefined ? onepressAuthorNamesPop = regxify(onepressFollowByEmailTextf[2]) : onepressAuthorNamesPop = '';
     ajaxFeatured(onepressAuthorNames, 'featured', 3, onepressMoreLink4, onepressFollowByEmailTextd, onepressAuthorNamesPop)
 });
+$('#editorial .HTML .widget-content').each(function(onepressMoreLink4, onepressAuthorNamesPop) {
+    var onepressAuthorNames = $(this),
+        onepressAuthorNamesListOne = onepressAuthorNames.text().trim(),
+        onepressFollowByEmailTextd = onepressAuthorNamesListOne.toLowerCase(),
+        onepressFollowByEmailTextf = onepressAuthorNamesListOne.split('$');
+    onepressFollowByEmailTextf[1] != undefined ? onepressMoreLink4 = regxify(onepressFollowByEmailTextf[1]) : onepressMoreLink4 = '';
+    onepressFollowByEmailTextf[2] != undefined ? onepressAuthorNamesPop = regxify(onepressFollowByEmailTextf[2]) : onepressAuthorNamesPop = '';
+    ajaxFeatured(onepressAuthorNames, 'editorial', 3, onepressMoreLink4, onepressFollowByEmailTextd, onepressAuthorNamesPop)
+});
 $('.onepress-free-related-content').each(function() {
     var onepressAuthorNames = $(this),
         onepressMoreLink4 = onepressAuthorNames.find('.related-tag').attr('data-label'),
