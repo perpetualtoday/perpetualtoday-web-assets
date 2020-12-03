@@ -2,6 +2,13 @@
         return new Promise(resolve => setTimeout(resolve, ms));
     }
 
+    // Close mobile menu if it is open - mobile devices only
+    function closeMobileMenu() {
+        if ($(".nav-active")[0]){
+            $('body').toggleClass('nav-active')
+        }
+    }
+
     function showPreloader() {
         var preloaderScreen = document.getElementById('preloader');
         preloaderScreen.classList.remove('hide', 'fade-out');
@@ -137,6 +144,7 @@
             } else if (newUrl.includes(rss)) {
                 window.open(newUrl, "_blank");
             } else if (newUrl.includes(domain)) {
+                    closeMobileMenu();
                     showPreloader();
                     history.pushState(null /*stateObj*/ , "" /*title*/ , newUrl);
                     loadPage(newUrl);
