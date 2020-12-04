@@ -77,11 +77,6 @@ $(function() {
         })
     });
     $('#onepress-free-load-more-link').each(function() {
-        var onepressAuthorNames = $(this),
-            onepressMoreLinkContent9 = onepressAuthorNames.data('load');
-        if (onepressMoreLinkContent9) {
-            $('#onepress-free-load-more-link').show()
-        };
         $('#onepress-free-load-more-link').on('click', function(onepressMoreLinkContenta) {
             $('#onepress-free-load-more-link').hide();
             $['ajax']({

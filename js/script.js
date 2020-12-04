@@ -446,4 +446,11 @@ $(function() {
         onepressMoreLink.replaceText(/(https:\/\/\S+(\.png|\.jpeg|\.jpg|\.gif))/g, '<img src="$1"/>');
         onepressMoreLink.replaceText(/(?:https:\/\/)?(?:www\.)?(?:youtube\.com)\/(?:watch\?v=)?(.+)/g, '<iframe id="youtube" width="100%" height="358" src="https://www.youtube.com/embed/$1" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>')
     });
+    $('#onepress-free-load-more-link').each(function() {
+        var onepressAuthorNames = $(this),
+            onepressMoreLinkContent9 = onepressAuthorNames.data('load');
+        if (onepressMoreLinkContent9) {
+            $('#onepress-free-load-more-link').show()
+        };
+    })
 });
