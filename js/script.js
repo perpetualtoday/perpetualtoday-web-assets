@@ -454,8 +454,7 @@ $(function() {
             $('#onepress-free-load-more-link').show()
         };
         $('#onepress-free-load-more-link').on('click', function(onepressMoreLinkContenta) {
-            var onepressMoreData = ""
-            var onepressMoreData = onepressAuthorNames.data('load');
+            var onepressMoreData = onepressMoreLinkContent9
             $('#onepress-free-load-more-link').hide();
             $['ajax']({
                 url: onepressMoreData,
