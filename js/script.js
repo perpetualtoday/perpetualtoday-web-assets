@@ -449,9 +449,37 @@ $(function() {
     $('#onepress-free-load-more-link').each(function() {
         var onepressMoreLinkContent9 = "";
         var onepressAuthorNames = $(this),
-            onepressMoreLinkContent9 = onepressAuthorNames.data('load');
+            onepressMoreLinkContent9 = onepressAuthorNames.data('load');;
         if (onepressMoreLinkContent9) {
             $('#onepress-free-load-more-link').show()
         };
+        $('#onepress-free-load-more-link').on('click', function(onepressMoreLinkContenta) {
+            var onepressMoreData = ""
+            var onepressMoreData = onepressAuthorNames.data('load');
+            $('#onepress-free-load-more-link').hide();
+            $['ajax']({
+                url: onepressMoreData,
+                success: function(onepressFollowByEmailText5) {
+                    var onepressMoreLinkContentb = $(onepressFollowByEmailText5).find('.blog-posts');
+                    onepressMoreLinkContentb.find('.index-post').addClass('post-animated post-fadeInUp');
+                    $('.blog-posts').append(onepressMoreLinkContentb.html());
+                    onepressMoreData = $(onepressFollowByEmailText5).find('#onepress-free-load-more-link').data('load');
+                    if (onepressMoreData) {
+                        $('#onepress-free-load-more-link').show()
+                    } else {
+                        $('#onepress-free-load-more-link').hide();
+                        $('#blog-pager .no-more').addClass('show')
+                    };
+                    $('.index-post .entry-image-link .entry-thumb').lazyify()
+                },
+                beforeSend: function() {
+                    $('#blog-pager .loading').show()
+                },
+                complete: function() {
+                    $('#blog-pager .loading').hide()
+                }
+            });
+            onepressMoreLinkContenta.preventDefault()
+        })
     })
 });

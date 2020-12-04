@@ -76,31 +76,4 @@ $(function() {
             }, 500)
         })
     });
-        $('#onepress-free-load-more-link').on('click', function(onepressMoreLinkContenta) {
-            var onepressMoreLinkContent9 = $('#onepress-free-load-more-link').data('load');
-            $('#onepress-free-load-more-link').hide();
-            $['ajax']({
-                url: onepressMoreLinkContent9,
-                success: function(onepressFollowByEmailText5) {
-                    var onepressMoreLinkContentb = $(onepressFollowByEmailText5).find('.blog-posts');
-                    onepressMoreLinkContentb.find('.index-post').addClass('post-animated post-fadeInUp');
-                    $('.blog-posts').append(onepressMoreLinkContentb.html());
-                    onepressMoreLinkContent9 = $(onepressFollowByEmailText5).find('#onepress-free-load-more-link').data('load');
-                    if (onepressMoreLinkContent9) {
-                        $('#onepress-free-load-more-link').show()
-                    } else {
-                        $('#onepress-free-load-more-link').hide();
-                        $('#blog-pager .no-more').addClass('show')
-                    };
-                    $('.index-post .entry-image-link .entry-thumb').lazyify()
-                },
-                beforeSend: function() {
-                    $('#blog-pager .loading').show()
-                },
-                complete: function() {
-                    $('#blog-pager .loading').hide()
-                }
-            });
-            onepressMoreLinkContenta.preventDefault()
-        })
 });
