@@ -447,9 +447,9 @@ $(function() {
         onepressMoreLink.replaceText(/(?:https:\/\/)?(?:www\.)?(?:youtube\.com)\/(?:watch\?v=)?(.+)/g, '<iframe id="youtube" width="100%" height="358" src="https://www.youtube.com/embed/$1" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>')
     });
     $('#onepress-free-load-more-link').each(function() {
-        var onepressMoreLinkContent9 = "";
+        var onepressMoreLinkContent9 = ""
         var onepressAuthorNames = $(this),
-            onepressMoreLinkContent9 = onepressAuthorNames.data('load');;
+            onepressMoreLinkContent9 = onepressAuthorNames.data('load');
         if (onepressMoreLinkContent9) {
             $('#onepress-free-load-more-link').show()
         };
@@ -462,8 +462,8 @@ $(function() {
                     var onepressMoreLinkContentb = $(onepressFollowByEmailText5).find('.blog-posts');
                     onepressMoreLinkContentb.find('.index-post').addClass('post-animated post-fadeInUp');
                     $('.blog-posts').append(onepressMoreLinkContentb.html());
-                    onepressMoreData = $(onepressFollowByEmailText5).find('#onepress-free-load-more-link').data('load');
-                    if (onepressMoreData) {
+                    onepressMoreDataArray = $(onepressFollowByEmailText5).find('#onepress-free-load-more-link').data('load');
+                    if (onepressMoreDataArray) {
                         $('#onepress-free-load-more-link').show()
                     } else {
                         $('#onepress-free-load-more-link').hide();
