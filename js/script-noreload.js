@@ -78,6 +78,7 @@ $(function() {
     });
     $('#onepress-free-load-more-link').each(function() {
         $('#onepress-free-load-more-link').on('click', function(onepressMoreLinkContenta) {
+            var onepressMoreLinkContent9 = $('#onepress-free-load-more-link').data('load');
             $('#onepress-free-load-more-link').hide();
             $['ajax']({
                 url: onepressMoreLinkContent9,
