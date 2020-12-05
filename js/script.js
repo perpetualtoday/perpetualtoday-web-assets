@@ -201,7 +201,7 @@ $(function() {
                 success: function(onepressFollowByEmailText5) {
                     var onepressMoreLinkContentb = $(onepressFollowByEmailText5).find('.blog-posts');
                     onepressMoreLinkContentb.find('.index-post').addClass('post-animated post-fadeInUp');
-                    var blogPostsData = onepressMoreLinkContentb.parseHTML(string);
+                    var blogPostsData = onepressMoreLinkContentb.parseHTML();
                     $('.blog-posts').append(blogPostsData);
                     onepressMoreLinkContent9 = $(onepressFollowByEmailText5).find('#onepress-free-load-more-link').data('load');
                     if (onepressMoreLinkContent9) {
