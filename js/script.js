@@ -205,6 +205,7 @@ $(function() {
                     onepressMoreLinkContent9 = $(onepressFollowByEmailText5).find('#onepress-free-load-more-link').data('load');
                     if (onepressMoreLinkContent9) {
                         $('#onepress-free-load-more-link').show()
+                        $('#onepress-free-load-more-link').attr("data-load", onepressMoreLinkContent9);
                     } else {
                         $('#onepress-free-load-more-link').hide();
                         $('#blog-pager .no-more').addClass('show')
