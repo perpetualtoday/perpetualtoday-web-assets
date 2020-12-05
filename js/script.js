@@ -200,7 +200,7 @@ $(function() {
             $['ajax']({
                 url: onepressMoreLinkContent9,
                 success: function(onepressFollowByEmailText5) {
-                    var onepressMoreLinkContentb = $(onepressFollowByEmailText5).getElementById("blog-posts");
+                    var onepressMoreLinkContentb = $(onepressFollowByEmailText5).find('.blog-posts');
                     onepressMoreLinkContentb.find('.index-post').addClass('post-animated post-fadeInUp');
                     document.getElementById("blog-posts").innerHTML+= ' ' + onepressMoreLinkContentb.innerHTML();
                     onepressMoreLinkContent9 = $(onepressFollowByEmailText5).find('#onepress-free-load-more-link').data('load');
