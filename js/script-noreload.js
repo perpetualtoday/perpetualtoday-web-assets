@@ -264,6 +264,23 @@ function getCustomStyle(onepressAuthorNamesArray, onepressMoreLink4, onepressAut
     return onepressViewAllText5
 }
 
+function getMorePosts(ajaxData) {
+    $['ajax']({
+        url: ajaxData,
+        success: function(response) {
+            var ajaxResp = $(response).find('.blog-posts');
+            ajaxResp.find('.index-post').addClass('post-animated post-fadeInUp');
+            return ajaxResp
+        },
+        beforeSend: function() {
+            $('#blog-pager .loading').show()
+        },
+        complete: function() {
+            $('#blog-pager .loading').hide()
+        }
+    });
+}
+
 $(function() {
     $('.mobile-logo').each(function() {
         var onepressMoreLink = $(this),
@@ -337,4 +354,3 @@ $(function() {
         })
     });
 });
-
