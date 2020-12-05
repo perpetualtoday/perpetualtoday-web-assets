@@ -201,11 +201,9 @@ $(function() {
                 success: function(onepressFollowByEmailText5) {
                     var onepressMoreLinkContentb = $(onepressFollowByEmailText5).find('.blog-posts');
                     onepressMoreLinkContentb.find('.index-post').addClass('post-animated post-fadeInUp');
-                    console.log(onepressMoreLinkContentb.html());
-                    var blogPostsData = onepressMoreLinkContentb.html();
-                    var blogPostsDataTrimmed = blogPostsData.find("script").remove();
+                    var blogPostsDataTrimmed = onepressMoreLinkContentb.find("script").remove();
                     console.log(blogPostsDataTrimmed);
-                    $('.blog-posts').append(onepressMoreLinkContentb.html());
+                    $('.blog-posts').append(blogPostsDataTrimmed.html());
                     onepressMoreLinkContent9 = $(onepressFollowByEmailText5).find('#onepress-free-load-more-link').data('load');
                     if (onepressMoreLinkContent9) {
                         $('#onepress-free-load-more-link').show()
