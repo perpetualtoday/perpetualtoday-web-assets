@@ -202,7 +202,7 @@ $(function() {
                 success: function(onepressFollowByEmailText5) {
                     var onepressMoreLinkContentb = $(onepressFollowByEmailText5).find('.blog-posts');
                     onepressMoreLinkContentb.find('.index-post').addClass('post-animated post-fadeInUp');
-                    document.getElementById("blog-posts").appendChild(onepressMoreLinkContentb.html());
+                    document.getElementById("blog-posts").innerHTML+= ' ' + onepressMoreLinkContentb.html();
                     onepressMoreLinkContent9 = $(onepressFollowByEmailText5).find('#onepress-free-load-more-link').data('load');
                     if (onepressMoreLinkContent9) {
                         $('#onepress-free-load-more-link').show()
