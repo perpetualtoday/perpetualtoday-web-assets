@@ -198,8 +198,8 @@ $(function() {
         $("#onepress-free-load-more-link").click(function(event) {
             event.stopPropagation();
             $('#onepress-free-load-more-link').hide();
-            
-            respBlogArray = getMorePosts(onepressMoreLinkContent9);
+
+            var respBlogArray = getMorePosts(onepressMoreLinkContent9);
             if (respBlogArray == "") {
                 $('#onepress-free-load-more-link').show()
                 $('#onepress-free-load-more-link').attr("data-load", onepressMoreLinkContent9);
