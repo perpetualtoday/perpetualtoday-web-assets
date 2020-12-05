@@ -195,23 +195,16 @@ $(function() {
         if (onepressMoreLinkContent9) {
             $('#onepress-free-load-more-link').show()
         };
-        $('#onepress-free-load-more-link').on('click', function(onepressMoreLinkContenta) {
+        $("#onepress-free-load-more-link").click(function(event) {
+            event.stopPropagation();
             $('#onepress-free-load-more-link').hide();
+
             $['ajax']({
                 url: onepressMoreLinkContent9,
-                success: function(onepressFollowByEmailText5) {
-                    var onepressMoreLinkContentb = $(onepressFollowByEmailText5).find('.blog-posts');
-                    onepressMoreLinkContentb.find('.index-post').addClass('post-animated post-fadeInUp');
-                    $('.blog-posts').append(onepressMoreLinkContentb.html());
-                    onepressMoreLinkContent9 = $(onepressFollowByEmailText5).find('#onepress-free-load-more-link').data('load');
-                    if (onepressMoreLinkContent9) {
-                        $('#onepress-free-load-more-link').show()
-                        $('#onepress-free-load-more-link').attr("data-load", onepressMoreLinkContent9);
-                    } else {
-                        $('#onepress-free-load-more-link').hide();
-                        $('#blog-pager .no-more').addClass('show')
-                    };
-                    $('.index-post .entry-image-link .entry-thumb').lazyify()
+                success: function(response) {
+                    var respBlogArray = $(response).find('.blog-posts');
+                    respBlogArray.find('.index-post').addClass('post-animated post-fadeInUp');
+                    return respBlogArray
                 },
                 beforeSend: function() {
                     $('#blog-pager .loading').show()
@@ -220,8 +213,23 @@ $(function() {
                     $('#blog-pager .loading').hide()
                 }
             });
-            onepressMoreLinkContenta.stopPropagation()
-            onepressMoreLinkContenta.preventDefault()
-        })
+            if (respBlogArray == "") {
+                $('#onepress-free-load-more-link').show()
+                $('#onepress-free-load-more-link').attr("data-load", onepressMoreLinkContent9);
+            } else {
+                $('.blog-posts').append(respBlogArray.html());
+                onepressMoreLinkContent9 = $(response).find('#onepress-free-load-more-link').data('load');
+
+                if (onepressMoreLinkContent9) {
+                    $('#onepress-free-load-more-link').show()
+                    $('#onepress-free-load-more-link').attr("data-load", onepressMoreLinkContent9);
+                } else {
+                    $('#onepress-free-load-more-link').hide();
+                    $('#blog-pager .no-more').addClass('show')
+                };
+            }
+            $('.index-post .entry-image-link .entry-thumb').lazyify()
+            event.preventDefault()
+        });
     })
 });
