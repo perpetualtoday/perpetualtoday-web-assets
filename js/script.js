@@ -196,11 +196,11 @@ $(function() {
             $('#onepress-free-load-more-link').show()
         };
         $('#onepress-free-load-more-link').on('click', function(onepressMoreLinkContenta) {
+            var onepressMoreLinkContent9 = "";
+            var onepressMoreLinkContent9 = onepressAuthorNames.data('load');
+
             $('#onepress-free-load-more-link').hide();
             $['ajax']({
-                var onepressMoreLinkContent9 = "";
-                var onepressMoreLinkContent9 = onepressAuthorNames.data('load');
-
                 url: onepressMoreLinkContent9,
                 success: function(onepressFollowByEmailText5) {
                     var onepressMoreLinkContentb = $(onepressFollowByEmailText5).find('.blog-posts');
