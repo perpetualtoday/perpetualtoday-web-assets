@@ -196,15 +196,13 @@ $(function() {
         };
         $('#onepress-free-load-more-link').on('click', function(onepressMoreLinkContenta) {
             $('#onepress-free-load-more-link').hide();
-            var blogPosts = ""
             $['ajax']({
                 url: onepressMoreLinkContent9,
                 success: function(onepressFollowByEmailText5) {
                     var onepressMoreLinkContentb = $(onepressFollowByEmailText5).find('.blog-posts');
                     onepressMoreLinkContentb.find('.index-post').addClass('post-animated post-fadeInUp');
-                    var blogPosts = onepressMoreLinkContentb.html()
-                    $('.blog-posts').append(blogPosts.unique());
-                    
+                    console.log(onepressMoreLinkContentb.html());
+                    $('.blog-posts').append(onepressMoreLinkContentb.html());
                     onepressMoreLinkContent9 = $(onepressFollowByEmailText5).find('#onepress-free-load-more-link').data('load');
                     if (onepressMoreLinkContent9) {
                         $('#onepress-free-load-more-link').show()
