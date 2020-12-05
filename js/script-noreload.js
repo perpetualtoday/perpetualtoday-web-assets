@@ -337,10 +337,10 @@ $(function() {
         })
     });
 
-    $('#onepress-free-load-more-link').each(function() {
-        var onepressAuthorNames = $(this),
-            onepressMoreLinkContent9 = onepressAuthorNames.data('load');
-        $('#onepress-free-load-more-link').on('click', function(onepressMoreLinkContenta) {
+    $('#onepress-free-load-more-link').on('click', function(onepressMoreLinkContenta) {
+        $('#onepress-free-load-more-link').each(function() {
+            var onepressAuthorNames = $(this),
+                onepressMoreLinkContent9 = onepressAuthorNames.data('load');
             $('#onepress-free-load-more-link').hide();
             $['ajax']({
                 url: onepressMoreLinkContent9,
