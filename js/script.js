@@ -199,22 +199,16 @@ $(function() {
             event.stopPropagation();
             $('#onepress-free-load-more-link').hide();
 
-            var respBlogArray = getMorePosts(onepressMoreLinkContent9);
-            if (respBlogArray == "") {
+            $('.blog-posts').append(getMorePosts(onepressMoreLinkContent9));
+            onepressMoreLinkContent9 = $(response).find('#onepress-free-load-more-link').data('load');
+
+            if (onepressMoreLinkContent9) {
                 $('#onepress-free-load-more-link').show()
                 $('#onepress-free-load-more-link').attr("data-load", onepressMoreLinkContent9);
             } else {
-                $('.blog-posts').append(respBlogArray.html());
-                onepressMoreLinkContent9 = $(response).find('#onepress-free-load-more-link').data('load');
-
-                if (onepressMoreLinkContent9) {
-                    $('#onepress-free-load-more-link').show()
-                    $('#onepress-free-load-more-link').attr("data-load", onepressMoreLinkContent9);
-                } else {
-                    $('#onepress-free-load-more-link').hide();
-                    $('#blog-pager .no-more').addClass('show')
-                };
-            }
+                $('#onepress-free-load-more-link').hide();
+                $('#blog-pager .no-more').addClass('show')
+            };
             $('.index-post .entry-image-link .entry-thumb').lazyify()
             event.preventDefault()
         });

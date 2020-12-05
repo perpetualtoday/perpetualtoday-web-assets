@@ -270,7 +270,8 @@ function getMorePosts(ajaxData) {
         success: function(response) {
             var ajaxResp = $(response).find('.blog-posts');
             ajaxResp.find('.index-post').addClass('post-animated post-fadeInUp');
-            return ajaxResp
+
+            var ajaxPosts = ajaxResp.html()
         },
         beforeSend: function() {
             $('#blog-pager .loading').show()
@@ -279,6 +280,8 @@ function getMorePosts(ajaxData) {
             $('#blog-pager .loading').hide()
         }
     });
+
+    return ajaxPosts
 }
 
 $(function() {
