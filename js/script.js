@@ -201,8 +201,6 @@ $(function() {
         if (!currentSlice) {
             var currentSlice = 1;
         };
-        
-        console.log(currentSlice);
 
         $('#onepress-free-load-more-link').click(function(onepressMoreLinkContenta){
             $('#onepress-free-load-more-link').hide();
@@ -230,8 +228,7 @@ $(function() {
 
                     onepressMoreLinkContent9 = $(onepressFollowByEmailText5).find('#onepress-free-load-more-link').data('load');
                     currentSlice = blogPostsRemoveSlice;
-
-                    console.log(currentSlice);
+                    
                     if (onepressMoreLinkContent9) {
                         $('#onepress-free-load-more-link').show()
                         $('#onepress-free-load-more-link').attr("data-load", onepressMoreLinkContent9);
