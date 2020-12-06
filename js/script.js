@@ -190,10 +190,20 @@ $(function() {
     });
     $('#onepress-free-load-more-link').each(function() {
         var onepressAuthorNames = $(this),
-            onepressMoreLinkContent9 = onepressAuthorNames.data('load');
+            onepressMoreLinkContent9 = onepressAuthorNames.data('load'),
+            currentSlice = onepressAuthorNames.data('slice');
+            
         if (onepressMoreLinkContent9) {
             $('#onepress-free-load-more-link').show()
         };
+        
+        // if there is no currentSlice, init
+        if (!currentSlice) {
+            var currentSlice = 1;
+        };
+        
+        console.log(currentSlice);
+
         $('#onepress-free-load-more-link').click(function(onepressMoreLinkContenta){
             $('#onepress-free-load-more-link').hide();
             $['ajax']({
@@ -201,11 +211,31 @@ $(function() {
                 success: function(onepressFollowByEmailText5) {
                     var onepressMoreLinkContentb = $(onepressFollowByEmailText5).find('.blog-posts');
                     onepressMoreLinkContentb.find('.index-post').addClass('post-animated post-fadeInUp');
-                    $('#blog-posts').append(onepressMoreLinkContentb.html());
+                    var blogPostsHtml = onepressMoreLinkContentb.html();
+
+                    // query currentSlice and add 1, that's the slices we want to remove.
+                    var blogPostsRemoveSlice = currentSlice + 1;
+
+                    // append, then clear duplicates
+                    $('#blog-posts').append(blogPostsHtml);
+
+                    // we have 7 posts per AJAX load, iterate on ALL of them.
+                    $('.post-0').slice(blogPostsRemoveSlice).remove();
+                    $('.post-1').slice(blogPostsRemoveSlice).remove();
+                    $('.post-2').slice(blogPostsRemoveSlice).remove();
+                    $('.post-3').slice(blogPostsRemoveSlice).remove();
+                    $('.post-4').slice(blogPostsRemoveSlice).remove();
+                    $('.post-5').slice(blogPostsRemoveSlice).remove();
+                    $('.post-6').slice(blogPostsRemoveSlice).remove();
+
                     onepressMoreLinkContent9 = $(onepressFollowByEmailText5).find('#onepress-free-load-more-link').data('load');
+                    currentSlice = blogPostsRemoveSlice;
+
+                    console.log(currentSlice);
                     if (onepressMoreLinkContent9) {
                         $('#onepress-free-load-more-link').show()
                         $('#onepress-free-load-more-link').attr("data-load", onepressMoreLinkContent9);
+                        $('#onepress-free-load-more-link').attr("data-slice", currentSlice);
                     } else {
                         $('#onepress-free-load-more-link').hide();
                         $('#blog-pager .no-more').addClass('show')
